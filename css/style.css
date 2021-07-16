@@ -43,6 +43,14 @@ header{
     width: 50%;
 }
 
-.right-side {
+.right-aside {
+    margin: 1rem;
     width: 25%;
+}
+
+#news-title{
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+    font-weight: bold;
 }
