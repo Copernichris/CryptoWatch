@@ -46,3 +46,22 @@ header{
 .right-side {
     width: 25%;
 }
+
+footer {
+    background-color: rgb(51, 49, 49);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+}
+
+footer ul {
+    margin: auto;
+    color: white
+}
+footer li {
+    list-style-type: none;
+    position: relative;
+    color: #2B6FFF;
+    margin: 0 0 10px 0;
+}
