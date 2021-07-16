@@ -50,6 +50,12 @@ header{
     width: 25%;
 }
 
+#news-title{
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+    font-weight: bold;
+}
 
 footer {
     background-color: rgb(51, 49, 49);
@@ -70,10 +76,4 @@ footer li {
     margin: 0 0 10px 0;
 }
 
-#news-title{
-    font-size: 1.5rem;
-    padding-bottom: .5rem;
-    text-align: center;
-    font-weight: bold;
-}
 
