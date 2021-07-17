@@ -79,6 +79,8 @@ footer {
 
 .ul-title {
     text-decoration: underline;
+    margin-bottom: .9rem;
+    margin-top: 1rem;
 }
 
 footer ul {
