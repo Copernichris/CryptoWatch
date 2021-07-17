@@ -65,6 +65,7 @@ header{
     padding-bottom: .5rem;
     text-align: center;
 }
+
 .news-content {
     margin-left: 1rem;
 }
@@ -87,6 +88,7 @@ footer ul {
     margin: auto;
     color: white;
 }
+
 footer li {
     list-style-type: none;
     position: relative;
