@@ -66,7 +66,23 @@ header{
     text-align: center;
 }
 .news-content {
-    margin-left: 1rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
+}
+
+.scroll {
+    padding:4px;
+    background-color: rgb(51, 49, 49);
+    color: #2B6FFF;
+    width: fit-content;
+    height: 320px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+
+.new-descr {
+    color: white;
 }
 
 
@@ -88,6 +104,7 @@ footer ul {
     margin: auto;
     color: white;
 }
+
 footer li {
     list-style-type: none;
     position: relative;
