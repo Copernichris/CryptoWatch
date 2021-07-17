@@ -14,13 +14,8 @@ fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d
       suffixNum++;
     }
   
-    if (newValue){
-    newValue = newValue.toPrecision(5);
-    } else if (newValue < 100000000000){
-        newValue = newValue.toPrecision(2);
-    }
-    
-     
+    newValue = newValue.toPrecision(3);
+  
     newValue += suffixes[suffixNum];
     return newValue;
   }
