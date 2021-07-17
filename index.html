@@ -11,9 +11,9 @@
 <body>
 <!-- Header Portion-->
 <header>
-    <div class="marketCap head text-2xl">Live Crypto Market Cap: <span id = "capValue" class="capValue">2.2T</span> </div>
+    <!-- <div class="marketCap head text-2xl">Live Crypto Market Cap: <span id = "capValue" class="capValue">2.2T</span> </div> -->
     <div class="mainHeader head text-4xl italic">CryptoWatch</div>
-    <div class="socialSentiment head text-2xl">Social Sentiment <span id = "sentimentValue" class="sentimentValue">😊</span>
+    <!-- <div class="socialSentiment head text-2xl">Social Sentiment <span id = "sentimentValue" class="sentimentValue">😊</span> -->
     </div>
 </header>
 
@@ -39,11 +39,19 @@
 
 
 <!-- Charts Portion -->
-    <div class="charts">    
-        <img src="imgs\eth-chart.jpg">
+    <div id="chart-container">
+
+
+        <div id="charts">    
+        <!-- <img src="imgs\eth-chart.jpg"> -->
+        </div>
+
+        <div id="chart-details">
+            <p>Volume: </p>
+            <p>Market Cap: </p>
+            <p>Supply: </p>
+        </div>
     </div>
-
-
 
 <!-- News Portion -->
     <aside class="right-aside"> 
@@ -104,6 +112,7 @@
     </ul>
 </footer>
 
+<script src="https://cdn.plot.ly/plotly-2.2.0.min.js"></script>
 <script src="./js/script.js"></script>
 
 </body>
