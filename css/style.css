@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    height: 100%
+    height: 100%;
 }
 
 header{
@@ -10,6 +10,11 @@ header{
     background-color: rgb(51, 49, 49);
     color: white;
     height: 4rem;
+}
+
+#search {
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 
@@ -50,10 +55,27 @@ header{
     padding-bottom: .3rem;
 }
 
-.charts {
+#chart-container {
     margin-left: 1rem;
     margin-right: 1rem;
     width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#charts {
+    width: 100%;
+}
+
+#chart-details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: 5px 19px 38px rgba(0,0,0,0.30), 5px 5px 12px rgba(0,0,0,0.22);
 }
 
 .right-aside {
@@ -72,17 +94,20 @@ header{
 
 .scroll {
     padding:4px;
-    background-color: rgb(51, 49, 49);
+    /* background-color: rgb(51, 49, 49); */
     color: #2B6FFF;
     width: fit-content;
+    box-shadow: 5px 19px 38px rgba(0,0,0,0.30), 5px 15px 12px rgba(0,0,0,0.22);
+    background-color: azure;
     height: 320px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
+    border-radius: 3px;
 }
 
 .new-descr {
-    color: white;
+    color: black;
 }
 
 
