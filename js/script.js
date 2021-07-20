@@ -10,6 +10,18 @@ var newDescrEl4 = document.getElementById("news-content-4");
 var newsTitleEl5 = document.getElementById("title-5");
 var newDescrEl5 = document.getElementById("news-content-5");
 
+function searchForum() {
+  $(`#submitBtn`).on("click", () => {
+      saveSearchTerm($(`#search`).val());
+      loadWeather($(`#search`).val());
+  });
+  $(`#search`).keypress((event) => {
+          saveSearchTerm($(`#search`).val());
+          loadWeather($(`#search`).val());
+  })
+};
+
+//Origin fetch and function for getting the market cap as example/reference
 fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&interval=1d,30d&convert=EUR&per-page=100&page=1")
   .then(response => response.json())
   .then(data => tickerEl.innerText = abbreviateNumber(data[0].market_cap))
@@ -36,12 +48,25 @@ fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d
 	y: [1, 2, 4, 8, 16] }], {
 	margin: { t: 0 } } );
 
+//Filling in data below charts with a ticker symbol
+fetch(/*whichever api we decide on for market data*/ + searchForum)
+  .then(response => response.json())
+  .then(data => /*volume*/)
+
+fetch(/*whichever api we decide on for market data*/ + searchForum)
+  .then(response => response.json())
+  .then(data => /*marketcap*/)
+
+fetch(/*whichever api we decide on for market data*/ + searchForum)
+  .then(response => response.json())
+  .then(data => /*supply*/)
+
 //Variable for charts data. Placeholders in place of where api's data would be put in
   var charts = [
     {
-      volume: 'placeholder',
-      marketCap: 'placeholder',
-      supply: 'placeholder'
+      volume: 'volumeCapPlaceholder',
+      marketCap: 'marketCapPlaceholder',
+      supply: 'supplyPlaceholder'
     }
   ]
 
