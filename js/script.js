@@ -109,11 +109,11 @@ fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symb
 // function that saves all searches
 function pullLatestSearches() {
   
-  var searchHistory = JSON.parse(localStorage.getItem("searchcoin"));
+  var searchHistory = JSON.parse(localStorage.getItem("coinsearch"));
 
   if (!searchHistory) {
-    searchHistory = ["BTC", "ETH"];
-    localStorage.setItem("searchcoin", JSON.stringify(searchHistory));
+    searchHistory = ["BTC"];
+    localStorage.setItem("coinsearch", JSON.stringify(searchHistory));
     return searchHistory;
   } else {
       return searchHistory;
@@ -151,27 +151,38 @@ function displayLatestSearches() {
 // function to save each search
 function saveSearchTerm(searchTerm) {
 
-  var prevTerms = JSON.parse(localStorage.getItem("searchcoin"));
+  var prevTerms = JSON.parse(localStorage.getItem("coinsearch"));
 
   prevTerms.unshift(searchTerm);
 
-  localStorage.setItem("searchcoin", JSON.stringify(prevTerms));
+  localStorage.setItem("coinsearch", JSON.stringify(prevTerms));
+}
+
+function loadLatestSearch() {
+
+  var latestTerms = pullLatestSearches();
+
+  var recentlySearched = latestTerms[0];
+
+  // function that runs everything(recentlySearched);
 }
 
 // adding event listener to the button
 function searchHandler() {
-  $('submitBtn').on("click", () => {
+  $('#submitBtn').on("click", () => {
     saveSearchTerm($('#search').val());
     // function that is running everything($('#search').val());
   })
 }
 
-// final running of function
+// final running of functions
 function init() {
 
-  searchHandler();
+  loadLatestSearch();
 
   displayLatestSearches();
+
+  searchHandler();
 }
 
 init();
