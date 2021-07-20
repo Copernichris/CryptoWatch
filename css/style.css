@@ -42,7 +42,20 @@ header{
 }
 
 .cryptoFav {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+}
+
+.previousSearchButton {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    background-color: rgb(51, 49, 49);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    width: 153.59px;
 }
 
 #submitBtn {
