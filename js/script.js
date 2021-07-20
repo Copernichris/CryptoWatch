@@ -10,9 +10,29 @@ var newDescrEl4 = document.getElementById("news-content-4");
 var newsTitleEl5 = document.getElementById("title-5");
 var newDescrEl5 = document.getElementById("news-content-5");
 
+var volumeEl = document.getElementById("volume");
+var marketCapEl = document.getElementById("marketCap");
+var supplyEl = document.getElementById("supply");
+
+//mktcap
 fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&interval=1d,30d&convert=EUR&per-page=100&page=1")
-  .then(response => response.json())
-  .then(data => tickerEl.innerText = abbreviateNumber(data[0].market_cap))
+  .then(response => response.json())  
+  .then(data => marketCapEl.innerText = abbreviateNumber(data[0].market_cap))
+
+//volume
+fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&interval=1d,30d&convert=EUR&per-page=100&page=1")
+  .then(response => response.json())  
+  .then(data => volumeEl.innerText = abbreviateNumber(data[0]["1d"].volume))
+
+//supply
+fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&interval=1d,30d&convert=EUR&per-page=100&page=1")
+  .then(response => response.json())  
+  .then(data => supplyEl.innerText = abbreviateNumber(data[0].circulating_supply))
+
+//test call
+fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&interval=1d,30d&convert=EUR&per-page=100&page=1")
+  .then(response => response.json())  
+  .then(data => console.log(data))
 
  function abbreviateNumber(value) {
     let newValue = value;
