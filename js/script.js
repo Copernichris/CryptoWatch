@@ -75,3 +75,74 @@ fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symb
 fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol=BTC&limit=10&sources=news")
   .then (response => response.json())
   .then (data => newDescrEl5.innerText = data.data[4].description)
+
+
+// function that saves all searches
+function pullLatestSearches() {
+  
+  var searchHistory = JSON.parse(localStorage.getItem("searchcoin"));
+
+  if (!searchHistory) {
+    searchHistory = ["BTC", "ETH"];
+    localStorage.setItem("searchcoin", JSON.stringify(searchHistory));
+    return searchHistory;
+  } else {
+      return searchHistory;
+  }
+}
+
+  // adding button elements for recent searches
+function displayLatestSearches() {
+  // clears text within container
+  $('#searchedCoins').text("");
+
+  // grabs the recent search
+ var searchHistory = pullLatestSearches();
+
+  for (var i = 0; i < 8; i++) {
+
+      if(searchHistory[i]) {
+        recentButtonEl = $("<button></button>").text(searchHistory[i]);
+        recentButtonEl.addClass("previousSearchButton");
+        recentButtonEl.attr("id", searchHistory[i])
+
+        recentButtonEl.on("click", (event) => {
+          saveSearchTerm(event.target.id);
+          // function that is displaying everything(event.target.id);
+
+
+      })
+
+        $('.searchedCoins').append(recentButtonEl);
+
+    }
+  }
+}
+
+// function to save each search
+function saveSearchTerm(searchTerm) {
+
+  var prevTerms = JSON.parse(localStorage.getItem("searchcoin"));
+
+  prevTerms.unshift(searchTerm);
+
+  localStorage.setItem("searchcoin", JSON.stringify(prevTerms));
+}
+
+// adding event listener to the button
+function searchHandler() {
+  $('submitBtn').on("click", () => {
+    saveSearchTerm($('#search').val());
+    // function that is running everything($('#search').val());
+  })
+}
+
+// final running of function
+function init() {
+
+  searchHandler();
+
+  displayLatestSearches();
+}
+
+init();
