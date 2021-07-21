@@ -25,12 +25,13 @@ header{
 }
 
 .main-container {
-    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-left: .5rem;
     display: flex;
     justify-content: center;
     flex-direction: row;
     height: fit-content;
-    width: 98%;
+    width: 99%;
     margin-bottom: 1rem;
 }
 
