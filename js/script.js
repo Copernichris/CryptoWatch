@@ -50,7 +50,7 @@ fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d
   
   }
 
-fetch("https://api.nomics.com/v1/exchange-rates/history?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&start=2018-04-14T00%3A00%3A00Z&end=2018-05-14T00%3A00%3A00Z")
+fetch("https://api.nomics.com/v1/exchange-rates/history?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids=BTC&start=2021-07-15T01:33:52+00:00&end=2021-07-20T01:33:52+00:00")
   .then(response => response.json())
   .then(data => console.log(data))
 
