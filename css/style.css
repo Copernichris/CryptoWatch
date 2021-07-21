@@ -24,15 +24,14 @@ header{
     width: 33.33%;
 }
 
-.container {
-    margin-left: 1.1rem;
-    margin-right: 1.1rem;
+.main-container {
+    margin-left: 1rem;
     display: flex;
-    align-content: center;
+    justify-content: center;
     flex-direction: row;
-    margin-top: 1rem;
     height: fit-content;
-    width: 100%;
+    width: 98%;
+    margin-bottom: 1rem;
 }
 
 #left-side {
@@ -55,7 +54,7 @@ header{
     border-radius: 3px;
     padding-top: .3rem;
     padding-bottom: .3rem;
-    width: 153.59px;
+    width: 100%;
 }
 
 #submitBtn {
@@ -112,7 +111,7 @@ header{
     width: fit-content;
     box-shadow: 5px 19px 38px rgba(0,0,0,0.30), 5px 15px 12px rgba(0,0,0,0.22);
     background-color: azure;
-    height: 320px;
+    height: 400px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
