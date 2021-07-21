@@ -17,7 +17,6 @@ header{
     border-radius: 2px;
 }
 
-
 .head {
     text-align: center;
     display: block;
@@ -73,6 +72,7 @@ header{
     margin-right: 1rem;
     width: 55%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-content: center;
 }
