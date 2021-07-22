@@ -108,9 +108,9 @@ function searchHandler() {
     var tokenKey;        
     tokenKey = ($('#search').val());
 
-    fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
-  .then (response => response.json())
-  .then (data => newsTitleEl.innerText = data.data[0].title)
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => newsTitleEl.innerText = data.data[0].title)
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
@@ -200,7 +200,9 @@ function searchHandler() {
                   }
               });
      }
+}
   }  
+}
 
   //nomics
   //mktcap
@@ -208,22 +210,6 @@ fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d
 .then(response => response.json())  
 .then(data => marketCapEl.innerText = abbreviateNumber(data[0].market_cap))
 
-//volume
-fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids="+tokenKey+"&interval=1d,30d&convert=EUR&per-page=100&page=1")
-.then(response => response.json())  
-.then(data => volumeEl.innerText = abbreviateNumber(data[0]["1d"].volume))
-
-//supply
-fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids="+tokenKey+"&interval=1d,30d&convert=EUR&per-page=100&page=1")
-.then(response => response.json())  
-.then(data => supplyEl.innerText = abbreviateNumber(data[0].circulating_supply))
-
-//test call
-fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids="+tokenKey+"&interval=1d,30d&convert=EUR&per-page=100&page=1")
-.then(response => response.json())  
-.then(data => console.log(data))
-  })
-}
 
 // final running of functions
 function init() {
