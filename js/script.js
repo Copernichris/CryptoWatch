@@ -74,7 +74,8 @@ function displayLatestSearches() {
 
         recentButtonEl.on("click", (event) => {
           saveSearchTerm(event.target.id);
-          // function that is displaying everything(event.target.id);
+          // $(chartObject)(event.target.id);
+          // $(chartObjectTwo)(event.target.id);
 
 
       })
@@ -101,7 +102,7 @@ function loadLatestSearch() {
 
   var recentlySearched = latestTerms[0];
 
-  // function that runs everything(recentlySearched);
+  // searchHandler(recentlySearched);
 }
 
 // chart fix
@@ -112,7 +113,8 @@ var chartObjectTwo = {};
 function searchHandler() {
   $('#submitBtn').on("click", () => {
     saveSearchTerm($('#search').val());    
-    // function that is running everything($('#search').val());
+    // $(chartObject)($('#search').val());
+    // $(chartObjectTwo)($('#search').val());
     var tokenKey;        
     tokenKey = ($('#search').val());
 
@@ -228,6 +230,7 @@ function searchHandler() {
               });
      }
   }  
+
   var xmlhttpTwo = new XMLHttpRequest();
   var apiTwo = 'https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol='+tokenKey+'&interval=day&time_series_indicators=open,close,high,volume,low&data_points=90';
   xmlhttpTwo.open("GET", apiTwo, true);
