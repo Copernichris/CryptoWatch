@@ -109,11 +109,11 @@ header{
 
 .scroll {
     padding:4px;
-    /* background-color: rgb(51, 49, 49); */
+    background-color: white;
     color: #2B6FFF;
     width: fit-content;
     box-shadow: 5px 19px 38px rgba(0,0,0,0.30), 5px 15px 12px rgba(0,0,0,0.22);
-    background-color: azure;
+    border: 1px solid black;
     height: 750px;
     overflow-x: hidden;
     overflow-y: auto;
