@@ -100,6 +100,9 @@ function loadLatestSearch() {
   // function that runs everything(recentlySearched);
 }
 
+// chart fix
+var chartObject = {};
+
 // adding event listener to the button
 function searchHandler() {
   $('#submitBtn').on("click", () => {
@@ -169,7 +172,10 @@ function searchHandler() {
                   return elem.open;
               });
               var ctx = document.getElementById('MyChart').getContext('2d');
-              var myChart = new Chart(ctx, {
+              if(chartObject.chart instanceof Chart) {
+                chartObject.chart.destroy();
+              }
+              chartObject.chart = new Chart(ctx, {
                   type: 'line',
                   data: {
                       labels: dates,
