@@ -9,6 +9,10 @@ var newsTitleEl4 = document.getElementById("title-4");
 var newDescrEl4 = document.getElementById("news-content-4");
 var newsTitleEl5 = document.getElementById("title-5");
 var newDescrEl5 = document.getElementById("news-content-5");
+var newsTitleEl6 = document.getElementById("title-6");
+var newDescrEl6 = document.getElementById("news-content-6");
+var newsTitleEl7 = document.getElementById("title-7");
+var newDescrEl7 = document.getElementById("news-content-7");
 
 var volumeEl = document.getElementById("volume");
 var marketCapEl = document.getElementById("marketCap");
@@ -102,6 +106,7 @@ function loadLatestSearch() {
 
 // chart fix
 var chartObject = {};
+var chartObjectTwo = {};  
 
 // adding event listener to the button
 function searchHandler() {
@@ -150,9 +155,25 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => newDescrEl5.innerText = data.data[4].description)
+  
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => newsTitleEl6.innerText = data.data[5].title)
+  
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => newDescrEl6.innerText = data.data[5].description)
+
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => newsTitleEl7.innerText = data.data[6].title)
+  
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => newDescrEl7.innerText = data.data[6].description)
 
     var xmlhttp = new XMLHttpRequest();
-    var api = 'https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol='+tokenKey+'&interval=day&time_series_indicators=open,close,high,low&data_points=50';
+    var api = 'https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol='+tokenKey+'&interval=day&time_series_indicators=open,close,high,low&data_points=90';
     xmlhttp.open("GET", api, true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function(){
@@ -207,6 +228,54 @@ function searchHandler() {
               });
      }
   }  
+  var xmlhttpTwo = new XMLHttpRequest();
+  var apiTwo = 'https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol='+tokenKey+'&interval=day&time_series_indicators=open,close,high,volume,low&data_points=90';
+  xmlhttpTwo.open("GET", apiTwo, true);
+  xmlhttpTwo.send();
+  xmlhttpTwo.onreadystatechange = function(){
+       if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var closes = data.data[0].timeSeries.map(function(elem){
+                return elem.close;
+            });
+            var dates = data.data[0].timeSeries.map(function(elem){
+                var date = new Date(elem.time *1000);
+                var formattedDate = (date.getMonth()+1)+
+                "/"+date.getDate()+
+                 "/"+date.getFullYear();
+                return formattedDate;
+            });
+            var volume = data.data[0].timeSeries.map(function(elem){
+                return elem.volume;
+            });
+            var ctx = document.getElementById('MyChart-2').getContext('2d');
+            if(chartObjectTwo.chart instanceof Chart) {
+              chartObjectTwo.chart.destroy();
+            }
+            chartObjectTwo.chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'volume',
+                        data: volume,
+                        backgroundColor: '#2B6FFF',
+                        borderColor: 'black',
+                        borderWidth: 2,
+                        pointStyle: 'rectRot',
+                    }
+                ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+   }
+}  
 
   //nomics
   //mktcap
