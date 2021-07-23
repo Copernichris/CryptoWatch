@@ -100,6 +100,7 @@ function loadLatestSearch() {
   // function that runs everything(recentlySearched);
 }
 
+// chart fix
 var chartObject = {};
 
 // adding event listener to the button
