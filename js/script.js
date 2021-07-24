@@ -1,3 +1,5 @@
+var tokenKey = "BTC";
+
 var tickerEl = document.getElementById("capValue");
 var newsTitleEl = document.getElementById("title-1");
 var newDescrEl = document.getElementById("news-content-1");
@@ -124,10 +126,12 @@ var chartObject = {};
 var chartObjectTwo = {};  
 
 // adding event listener to the button
+
 function searchHandler(symbol) {  
 
     var tokenKey;        
     tokenKey = symbol
+
 
   fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=90")
     .then (response => response.json())
@@ -392,3 +396,11 @@ function init() {
 }
 
 init();
+
+function defaultTicker() {
+  document.getElementById("search").value = "BTC";
+  document.getElementById("submitBtn").click();
+  document.getElementById("search").value = "";
+}
+
+defaultTicker();
