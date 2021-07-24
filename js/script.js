@@ -65,7 +65,7 @@ function pullLatestSearches() {
   var searchHistory = JSON.parse(localStorage.getItem("coinsearch"));
 
   if (!searchHistory) {
-    searchHistory = ["BTC"];
+    searchHistory = [""];
     localStorage.setItem("coinsearch", JSON.stringify(searchHistory));
     return searchHistory;
   } else {
@@ -88,19 +88,17 @@ function displayLatestSearches() {
         recentButtonEl.addClass("previousSearchButton");
         recentButtonEl.attr("id", searchHistory[i])
 
-        recentButtonEl.on("click", (event) => {
-          saveSearchTerm(event.target.id);
-          // $(chartObject)(event.target.id);
-          // $(chartObjectTwo)(event.target.id);
+      }
+      recentButtonEl.on("click", (event) => {
+        console.log("click", event.target.id)
+        saveSearchTerm(event.target.id);
+        searchHandler(event.target.id);
 
-
-      })
-
-        $('.searchedCoins').append(recentButtonEl);
-
-    }
+    })
+    $('.searchedCoins').append(recentButtonEl);
   }
 }
+
 
 // function to save each search
 function saveSearchTerm(searchTerm) {
@@ -118,7 +116,7 @@ function loadLatestSearch() {
 
   var recentlySearched = latestTerms[0];
 
-  // searchHandler(recentlySearched);
+  searchHandler(recentlySearched);
 }
 
 // chart fix
@@ -126,33 +124,26 @@ var chartObject = {};
 var chartObjectTwo = {};  
 
 // adding event listener to the button
-function searchHandler() {  
-  $('#submitBtn').on("click", () => {
-    saveSearchTerm($('#search').val());    
-    // $(chartObject)($('#search').val());
-    // $(chartObjectTwo)($('#search').val());
+function searchHandler(symbol) {  
+
     var tokenKey;        
-    tokenKey = ($('#search').val().toUpperCase());
+    tokenKey = symbol
 
   fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=90")
     .then (response => response.json())
-    .then (data => percentChange.innerText = data.data[0].percent_change_24h)
+    .then (data => {
+      percentChange.innerText = data.data[0].percent_change_24h;
+      tickerName.innerText = data.data[0].name;
+    })
 
-  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
-    .then (response => response.json())
-    .then (data => tickerName.innerText = data.data[0].name)
-
-  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
-    .then (response => response.json())
-    .then (data => reddit.innerText = data.data[0].reddit_posts)
 
   fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
     .then (response => response.json())
-    .then (data => twitter.innerText = data.data[0].tweets)
-
-  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
-    .then (response => response.json())
-    .then (data => urlShares.innerText = data.data[0].unique_url_shares)
+    .then (data => {
+      reddit.innerText = data.data[0].reddit_posts;
+      twitter.innerText = data.data[0].tweets;
+      urlShares.innerText = data.data[0].unique_url_shares;
+    })
         
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
   .then (response => response.json())
@@ -383,11 +374,6 @@ fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d
 .then(response => response.json())  
 .then(data => supplyEl.innerText = abbreviateNumber(data[0].circulating_supply))
 
-//test call
-fetch("https://api.nomics.com/v1/currencies/ticker?key=bf0f8b8bff53b4098df1df96d4d2d0531a4d8ffa&ids="+tokenKey+"&interval=1d,30d&convert=EUR&per-page=100&page=1")
-.then(response => response.json())  
-.then(data => console.log(data))
-  })
 }
 
 // final running of functions
@@ -398,6 +384,11 @@ function init() {
   displayLatestSearches();
 
   searchHandler();
+
+  $('#submitBtn').on("click", () => {
+    saveSearchTerm($('#search').val().toUpperCase());    
+    searchHandler($('#search').val());
+  })
 }
 
 init();
