@@ -123,7 +123,7 @@ function searchHandler() {
   .then (response => response.json())
   .then (data => {
     newsTitleEl.innerText = data.data[0].title;
-    newsURL.setAttribute("href", data.data[0].url);
+    newsTitleEl.setAttribute("href", data.data[0].url);
   })
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -133,8 +133,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl2.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl2.innerText = data.data[1].title;
+      newsTitleEl2.setAttribute("href", data.data[1].url);
     })
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -144,8 +144,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl3.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl3.innerText = data.data[2].title;
+      newsTitleEl3.setAttribute("href", data.data[2].url);
     })
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -155,8 +155,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl4.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl4.innerText = data.data[3].title;
+      newsTitleEl4.setAttribute("href", data.data[3].url);
     })
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -166,8 +166,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl5.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl5.innerText = data.data[4].title;
+      newsTitleEl5.setAttribute("href", data.data[4].url);
     })
 
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -177,8 +177,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl6.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl6.innerText = data.data[5].title;
+      newsTitleEl6.setAttribute("href", data.data[5].url);
     })
   
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
@@ -188,8 +188,8 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => {
-      newsTitleEl7.innerText = data.data[0].title;
-      newsURL.setAttribute("href", data.data[0].url);
+      newsTitleEl7.innerText = data.data[6].title;
+      newsTitleEl7.setAttribute("href", data.data[6].url);
     })
   
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
