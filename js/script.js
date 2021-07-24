@@ -110,14 +110,14 @@ var chartObject = {};
 var chartObjectTwo = {};  
 
 // adding event listener to the button
-function searchHandler() {
+function searchHandler() {  
   $('#submitBtn').on("click", () => {
     saveSearchTerm($('#search').val());    
     // $(chartObject)($('#search').val());
     // $(chartObjectTwo)($('#search').val());
     var tokenKey;        
-    tokenKey = ($('#search').val());
-
+    tokenKey = ($('#search').val().toUpperCase());
+        
     fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
   .then (response => response.json())
   .then (data => newsTitleEl.innerText = data.data[0].title)
