@@ -1,3 +1,5 @@
+var tokenKey = "BTC";
+
 var tickerEl = document.getElementById("capValue");
 var newsTitleEl = document.getElementById("title-1");
 var newDescrEl = document.getElementById("news-content-1");
@@ -131,7 +133,7 @@ function searchHandler() {
     saveSearchTerm($('#search').val());    
     // $(chartObject)($('#search').val());
     // $(chartObjectTwo)($('#search').val());
-    var tokenKey;        
+    //var tokenKey;        
     tokenKey = ($('#search').val().toUpperCase());
 
   fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=90")
@@ -401,3 +403,11 @@ function init() {
 }
 
 init();
+
+function defaultTicker() {
+  document.getElementById("search").value = "BTC";
+  document.getElementById("submitBtn").click();
+  document.getElementById("search").value = "";
+}
+
+defaultTicker();
