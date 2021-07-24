@@ -13,6 +13,8 @@ var newsTitleEl6 = document.getElementById("title-6");
 var newDescrEl6 = document.getElementById("news-content-6");
 var newsTitleEl7 = document.getElementById("title-7");
 var newDescrEl7 = document.getElementById("news-content-7");
+var tickerName = document.getElementById("crypto-being-shown");
+var percentChange = document.getElementById("crypto-change");
 
 var volumeEl = document.getElementById("volume");
 var marketCapEl = document.getElementById("marketCap");
@@ -117,8 +119,16 @@ function searchHandler() {
     // $(chartObjectTwo)($('#search').val());
     var tokenKey;        
     tokenKey = ($('#search').val().toUpperCase());
+
+  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=90")
+    .then (response => response.json())
+    .then (data => percentChange.innerText = data.data[0].percent_change_24h)
+
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+    .then (response => response.json())
+    .then (data => tickerName.innerText = data.data[0].name)
         
-    fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
+  fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
   .then (response => response.json())
   .then (data => newsTitleEl.innerText = data.data[0].title)
 
