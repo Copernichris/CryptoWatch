@@ -12,6 +12,17 @@ header{
     height: 4rem;
 }
 
+nav {
+    background-color: rgb(51, 49, 49);
+}
+
+.name {
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 #search {
     border: 1px solid black;
     border-radius: 2px;
