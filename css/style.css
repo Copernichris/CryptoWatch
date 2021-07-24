@@ -40,6 +40,12 @@ header{
     flex-direction: column;
 }
 
+#title-con {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .cryptoFav {
     margin-top: 1.5rem;
 }
