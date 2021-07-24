@@ -83,6 +83,23 @@ header{
     align-content: center;
 }
 
+#addit-metrics {
+    margin-top: 2rem;
+}
+
+#metric-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#side-note {
+    color: grey;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 #charts {
     width: 100%;
 }
