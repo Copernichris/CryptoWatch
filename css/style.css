@@ -105,6 +105,8 @@ header{
 .news-content {
     margin-left: .3rem;
     margin-right: .3rem;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 .scroll {
@@ -123,6 +125,14 @@ header{
 
 .new-descr {
     color: black;
+    padding-bottom: 0;
+}
+
+.new-time {
+    color: grey;
+    font-size: .9rem;
+    padding-top: 0.3rem;
+
 }
 
 footer {
