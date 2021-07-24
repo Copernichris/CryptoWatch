@@ -15,6 +15,9 @@ var newsTitleEl7 = document.getElementById("title-7");
 var newDescrEl7 = document.getElementById("news-content-7");
 var tickerName = document.getElementById("crypto-being-shown");
 var percentChange = document.getElementById("crypto-change");
+var reddit = document.getElementById("reddit");
+var twitter = document.getElementById("twitter");
+var urlShares = document.getElementById("urlshares");
 
 //new times
 var newTimeEl1 = document.getElementById("news-time-1");
@@ -136,6 +139,18 @@ function searchHandler() {
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
     .then (response => response.json())
     .then (data => tickerName.innerText = data.data[0].name)
+
+  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
+    .then (response => response.json())
+    .then (data => reddit.innerText = data.data[0].reddit_posts)
+
+  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
+    .then (response => response.json())
+    .then (data => twitter.innerText = data.data[0].tweets)
+
+  fetch("https://api.lunarcrush.com/v2?data=assets&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&interval=day&time_series_indicators=open,close,high,low&data_points=1")
+    .then (response => response.json())
+    .then (data => urlShares.innerText = data.data[0].unique_url_shares)
         
   fetch("https://api.lunarcrush.com/v2?data=feeds&key=axnpldsftoa03n17z75cy5r&symbol="+tokenKey+"&limit=10&sources=news")
   .then (response => response.json())
